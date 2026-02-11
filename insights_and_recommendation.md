@@ -1,47 +1,47 @@
-# Key Insights & Recommendations – Sales & Profitability Analysis
+# Key Insights & Recommendations – Credit Risk Analysis
 
 ## Key Insights
 
-1. Discount-Driven Profit Erosion
-- Profit margins decline sharply when discounts exceed 20–30%
-- High-discount orders frequently result in negative profit
+1. Credit History Is the Strongest Predictor
+- Customers without prior credit history show significantly higher default rates
+- Indicates need for stricter assessment or pricing adjustments
 
-2. Loss-Making Categories
-- Certain sub-categories generate high revenue but negative margins
-- Indicates pricing or cost structure issues
+2. Income vs Loan Amount Mismatch
+- High loan amounts relative to income correlate with higher default risk
+- Suggests affordability gaps in approval logic
 
-3. Product-Level Profit Leakage
-- A small set of products accounts for the majority of losses
-- Classic Pareto (80/20) pattern observed
+3. Employment Stability Matters
+- Self-employed and contract workers show higher default probability
+- Risk varies significantly by employment type
 
-4. Regional Margin Imbalance
-- Some regions show strong sales but weak profitability
-- Suggests region-specific pricing or logistics challenges
+4. Portfolio Concentration Risk
+- A small segment of high-risk loans contributes disproportionately to defaults
+- Portfolio risk is not evenly distributed
 
 ---
 
 ## Business Recommendations
 
-1. Discount Guardrails
-- Cap discounts at 20% for low-margin categories
-- Require managerial approval for discounts above 30%
+1. Credit Policy Refinement
+- Introduce tighter loan-to-income ratio thresholds
+- Adjust risk scoring for applicants without credit history
 
-2. Stop-Loss Product Strategy
-- Identify top loss-making SKUs
-- Renegotiate supplier cost or remove from promotions
+2. Risk-Based Pricing
+- Apply higher interest rates or shorter tenures for high-risk segments
+- Encourage secured loans where applicable
 
-3. Margin-Based Promotions
-- Prioritize high-margin products in marketing campaigns
-- Bundle low-margin items with profitable products
+3. Early Warning Monitoring
+- Flag loans with high risk scores for proactive monitoring
+- Trigger early intervention before default
 
-4. Regional Pricing Review
-- Adjust shipping and pricing strategies for low-margin regions
-- Introduce minimum order thresholds where necessary
+4. Portfolio Diversification
+- Limit exposure concentration to high-risk segments
+- Balance approvals across multiple borrower profiles
 
 ---
 
 ## Expected Impact
-- 3–6% improvement in overall profit margin
-- Reduction in loss-making transactions
-- Better pricing discipline across the organization
+- Reduction in default rate by 2–4%
+- Improved portfolio quality
+- Better alignment between growth and risk appetite
 
