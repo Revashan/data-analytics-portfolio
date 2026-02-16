@@ -1,0 +1,64 @@
+/*1.   SALES VS PROFIT VS MARGIN   */
+SELECT
+  DATE_TRUNC('month', "Order Date") AS month,
+  SUM(Sales) AS revenue,
+  SUM(Profit) AS profit,
+  ROUND(SUM(Profit) * 100.0 / NULLIF(SUM(Sales),0), 2) AS margin_pct,
+  ROUND(AVG(Discount)*100, 2) AS avg_discount_pct
+FROM superstore
+GROUP BY 1
+ORDER BY 1;
+
+/* 2. PROFIT LEAKAGE BY CATEGORY OR SUB CATEGORY*/
+
+SELECT
+  Category,
+  "Sub-Category",
+  SUM(Sales) AS revenue,
+  SUM(Profit) AS profit,
+  ROUND(SUM(Profit) * 100.0 / NULLIF(SUM(Sales),0), 2) AS margin_pct,
+  ROUND(AVG(Discount)*100,2) AS avg_discount_pct
+FROM superstore
+GROUP BY 1,2
+ORDER BY profit ASC;
+
+/* 3. DISCOUNT IMPACT BANDS */
+
+SELECT
+  CASE
+    WHEN Discount = 0 THEN '0%'
+    WHEN Discount <= 0.1 THEN '1-10%'
+    WHEN Discount <= 0.2 THEN '11-20%'
+    WHEN Discount <= 0.3 THEN '21-30%'
+    ELSE '30%+'
+  END AS discount_band,
+  COUNT(*) AS order_lines,
+  SUM(Sales) AS revenue,
+  SUM(Profit) AS profit,
+  ROUND(SUM(Profit) * 100.0 / NULLIF(SUM(Sales),0), 2) AS margin_pct
+FROM superstore
+GROUP BY 1
+ORDER BY 1;
+
+/* 4. REGIONAL PROFITABILITY  */
+
+SELECT
+  Region,
+  SUM(Sales) AS revenue,
+  SUM(Profit) AS profit,
+  ROUND(SUM(Profit) * 100.0 / NULLIF(SUM(Sales),0), 2) AS margin_pct
+FROM superstore
+GROUP BY Region
+ORDER BY margin_pct ASC;
+
+/* 5.TOP LOSS MAKING PRODUCTS */
+
+SELECT
+  "Product Name",
+  SUM(Sales) AS revenue,
+  SUM(Profit) AS profit,
+  ROUND(AVG(Discount)*100,2) AS avg_discount_pct
+FROM superstore
+GROUP BY 1
+ORDER BY profit ASC
+LIMIT 20;
