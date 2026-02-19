@@ -1,4 +1,7 @@
-/*1.   SALES VS PROFIT VS MARGIN   */
+
+/* -------------------------------
+   1.   SALES VS PROFIT VS MARGIN 
+-------------------------------- */
 SELECT
   DATE_TRUNC('month', "Order Date") AS month,
   SUM(Sales) AS revenue,
