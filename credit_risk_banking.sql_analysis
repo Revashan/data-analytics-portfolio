@@ -1,0 +1,48 @@
+/* 1.portfolio health overview */
+SELECT
+  COUNT(*) AS total_loans,
+  SUM(CASE WHEN Default_Flag = 1 THEN 1 ELSE 0 END) AS defaulted_loans,
+  ROUND(AVG(Default_Flag)*100,2) AS default_rate_pct,
+  SUM(CASE WHEN Default_Flag = 1 THEN LoanAmount ELSE 0 END) AS exposure_at_risk
+FROM loan_portfolio;
+
+/* 2.Credit history impact */
+SELECT
+  Credit_History,
+  COUNT(*) AS loans,
+  ROUND(AVG(Default_Flag)*100,2) AS default_rate
+FROM loan_portfolio
+GROUP BY Credit_History;
+
+
+/* 3.Affordability risk */
+
+SELECT
+ CASE
+    WHEN LoanAmount / NULLIF(TotalIncome,0) < 2 THEN 'Low Risk'
+    WHEN LoanAmount / TotalIncome < 4 THEN 'Medium Risk'
+    ELSE 'High Risk'
+  END AS lti_band,
+  ROUND(AVG(Default_Flag)*100,2) AS default_rate
+FROM loan_portfolio
+GROUP BY lti_band;
+
+/* 4.Employment Stability */
+
+SELECT
+  Employment_Type,
+  COUNT(*) AS loans,
+  ROUND(AVG(Default_Flag)*100,2) AS default_rate
+FROM loan_portfolio
+GROUP BY Employment_Type
+ORDER BY default_rate DESC;
+
+/* 5.property area risk */
+
+SELECT
+  Property_Area,
+  ROUND(AVG(Default_Flag)*100,2) AS default_rate
+FROM loan_portfolio
+GROUP BY Property_Area;
+
+
